@@ -1,0 +1,27 @@
+version: '3.8'
+
+volumes:
+  chat-postgres-data:
+
+services:
+  chat-postgres:
+    container_name: chat-postgres
+    image: postgres:15-alpine
+    restart: unless-stopped
+    environment:
+      TZ: UTC
+      PGUSER: chat
+      POSTGRES_PASSWORD: YAZ6Guyj2yYQWxsBP9kc8LgwhumkY6Ds
+      POSTGRES_DB: chat
+      POSTGRES_USER: chat
+    volumes:
+      - chat-postgres-data:/var/lib/postgresql/data
+      - ./dumps:/home/dumps
+    ports:
+      - '12345:5432'
+    healthcheck:
+      test: [ "CMD", "pg_isready" ]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+      start_period: 10s

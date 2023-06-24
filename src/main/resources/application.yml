@@ -1,0 +1,37 @@
+app:
+  security:
+    token-expiration-timeout: ${TOKEN_EXPIRATION_TIMEOUT:172800000} # 48 hour
+    hmac-secret: ${HMAC_SECRET:wbvetwf1RVxBTUKbqzMg5pK9idhFSB1ng8c8h8pT5GjB6jh4VNN0ixqW+6rlyNylwfVT7rvxd8HiXmauJ265zA==}
+
+server:
+  port: ${LISTEN_PORT:8090}
+  address: ${LISTEN_HOST:0.0.0.0}
+spring:
+  profiles:
+    active: development
+  main:
+    banner-mode: off
+  r2dbc:
+    url: r2dbc:postgresql://${DB_HOST:localhost}:${DB_PORT:12345}/${DB_NAME:chat}?timeZone=${DB_TZ:UTC}
+    username: ${DB_USERNAME:chat}
+    password: ${DB_PASSWORD:YAZ6Guyj2yYQWxsBP9kc8LgwhumkY6Ds}
+    pool:
+      enabled: true
+      max-size: 20
+      initial-size: 10
+  web:
+    locale: en
+  flyway:
+    enabled: false
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health
+logging:
+  level:
+    org.springframework.data.convert.CustomConversions: ERROR
+#    org.springframework.security: DEBUG
+#    io.r2dbc.postgresql.QUERY: DEBUG
+#    io.r2dbc.postgresql.PARAM: DEBUG
