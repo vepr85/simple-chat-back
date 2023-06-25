@@ -4,5 +4,5 @@ package com.example.simplechat.chat.model
 data class Chat(
     val id: Long,
     val creatorId: Long,
-    val userIds: List<Long>,
+    val userIds: Set<Long>,
 ) : java.io.Serializable

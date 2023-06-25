@@ -37,10 +37,8 @@ dependencies {
     runtimeOnly("org.postgresql:postgresql")
     runtimeOnly("org.postgresql:r2dbc-postgresql")
 
-
     val joseJWTVersion = "9.30.2"
     implementation("com.nimbusds:nimbus-jose-jwt:$joseJWTVersion")
-
 
 
     testImplementation("org.springframework.boot:spring-boot-starter-test")

@@ -31,19 +31,20 @@ create table app.chat_user
 
 create table app.message
 (
-    id          bigint generated always as identity
+    id         bigint generated always as identity
         constraint pk_message_id primary key,
-    chat_id     bigint      not null
+    chat_id    bigint      not null
         constraint fk_message_chat_id__chat_id references app.chat,
-    sender_id   bigint      not null
+    sender_id  bigint      not null
         constraint fk_message_sender_id__user_id references app.user,
-    receiver_id bigint      not null
-        constraint fk_message_receiver_id__user_id references app.user,
-    message     text        not null,
-    created_at  timestamptz not null
+    message    text        not null,
+    created_at timestamptz not null
 );
 
 
-insert into app.user(email, password_hash) values('test1@test.com', 'test1');
-insert into app.user(email, password_hash) values('test2@test.com', 'test2');
-insert into app.user(email, password_hash) values('test3@test.com', 'test3');
+insert into app.user(email, password_hash)
+values ('test1@test.com', 'test1');
+insert into app.user(email, password_hash)
+values ('test2@test.com', 'test2');
+insert into app.user(email, password_hash)
+values ('test3@test.com', 'test3');
