@@ -15,6 +15,12 @@ java {
     sourceCompatibility = JavaVersion.VERSION_17
 }
 
+flyway {
+    url = "jdbc:postgresql://localhost:5432/chat"
+    user = "XXX"
+    password = "XXX"
+}
+
 repositories {
     mavenCentral()
 }
