@@ -1,1 +1,1 @@
-rootProject.name = "simple-chat"
+rootProject.name = "simple-chat-back"
